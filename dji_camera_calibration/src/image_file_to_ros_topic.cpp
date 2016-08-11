@@ -10,9 +10,9 @@
 
 int main(int argc, char** argv)
 {
-  if (argc != 2)
+  if (argc != 4)
     {
-      ROS_ERROR("Usage ./image_file_to_ros_topic input_dir");
+      ROS_ERROR("Usage ./image_file_to_ros_topic <input_dir> <extension (e.g. .png)> <camera_calibration_file.yml> ");
       return -1;
     }
   ros::init(argc, argv, "image_publisher");
@@ -26,32 +26,35 @@ int main(int argc, char** argv)
   boost::filesystem::directory_iterator end_iter;
   for (boost::filesystem::directory_iterator iter(argv[1]); iter != end_iter; iter++)
     {
-      //      boost::filesystem::path class_dir_path(*iter);
-      // for (boost::filesystem::directory_iterator iter2(class_dir_path); iter2 != end_iter; iter2++)
-      //	{
-	  boost::filesystem::path file(*iter);
-	  if (file.extension() == ".JPG")
+      boost::filesystem::path file(*iter);
+	  if (file.extension() == argv[2])
 	    {
 	      files_to_process.push_back(file.c_str());
-	      ROS_INFO("Read file \t%s\n", file.c_str());
 	    }
-	  //	}
-
     }
 
   //CameraInfo
   sensor_msgs::CameraInfo cam_info;
-  std::string cam_info_file("/home/pad1pal/catkin_ws/src/dji_phantom_plant_counting/dji_camera_calibration/calib_file.yml");
+  std::string cam_info_file(argv[3]);
   std::string cam_name;
-  camera_calibration_parsers::readCalibration(cam_info_file,
-					      cam_name,
-					      cam_info);
+  bool calib_file_read_success = camera_calibration_parsers::readCalibration(cam_info_file,
+									     cam_name,
+									     cam_info);
+
+  if (calib_file_read_success)
+    {
+      ROS_INFO_STREAM("calib file read successfully");
+    }
+  else
+    {
+      ROS_WARN_STREAM(cam_info_file << " not valid, won't publish CameraInfo");
+    }
 
   std::sort(files_to_process.begin(), files_to_process.end());
   ros::Rate loop_rate(25);
   for (size_t i = 0; i < files_to_process.size(); i++)
     {
-      //      ROS_INFO_STREAM(files_to_process.at(i));
+      ROS_INFO_STREAM("Publishing " << files_to_process.at(i));
       
       cv::Mat image = cv::imread(files_to_process.at(i), CV_LOAD_IMAGE_COLOR);
       cv::waitKey(30);
@@ -61,7 +64,10 @@ int main(int argc, char** argv)
       cam_info.header.stamp = ros::Time::now();
 
       pub.publish(msg);
-      cam_info_pub.publish(cam_info);
+      if(calib_file_read_success)
+	{
+	  cam_info_pub.publish(cam_info);
+	}
 
       ros::spinOnce();
       loop_rate.sleep();
