@@ -7,6 +7,7 @@ project(dji_camera_calibration)
 find_package(catkin REQUIRED COMPONENTS
   cv_bridge
   image_transport
+  camera_calibration_parsers
 )
 
 find_package(Boost REQUIRED COMPONENTS filesystem)

@@ -1,9 +1,9 @@
 ----------
 Calibration
 ----------
-Fly with the drone (Use DJI Go app) and shoot around 50 pictures of a checkeboard from close (0.5m), far (5m) and in between. Also from different angles.
-Copy images in one folder and use image_file_to_ros_topic.cpp tool to generate a ROS bag.
-Use https://github.int.bosppaa.com/deepfield/phenotyping/tree/indigo-develop/calibration_tools to calibrate the camera and generate CameraInfo.yaml.
+- Fly with the drone (Use DJI Go app) and shoot around 50 pictures of a checkeboard from close (0.5m), far (5m) and in between. Also from different angles.
+- Copy images in one folder and use image_file_to_ros_topic.cpp tool to publishes images as ROS messages. Use ``rosbag record`` to record a ROS bag file.
+- Use https://github.int.bosppaa.com/deepfield/phenotyping/tree/indigo-develop/calibration_tools to calibrate the camera and generate CameraInfo.yaml.
 
 ----------
 Record plant images
@@ -14,6 +14,8 @@ Use DJI Go app and record Waypoints, see: http://forum.dji.com/thread-30373-1-1.
 ----------
 Convert plant images video into ROS bag
 ----------
+- extract png images from  *.MOV file: ``ffmpeg -i DJI_0003_height_3m.MOV image%06d.png``
+- Generate ROS bag with converted images and above obtained CameraInfo.
 
 ----------
 Localize the drone using visual markers
