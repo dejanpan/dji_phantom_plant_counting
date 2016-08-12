@@ -20,6 +20,9 @@ Calibration
 - Fly with the drone (Use DJI Go app) and shoot around 50 pictures of a checkeboard from close (0.5m), far (5m) and in between. Also from different angles.
 - Copy images in one folder and use ``image_file_to_ros_topic.cpp`` tool to publishes images as ROS messages. Use ``rosbag record dji_camera/image_raw`` to record a ROS bag file.
 - Use https://github.int.bosppaa.com/deepfield/phenotyping/tree/indigo-develop/calibration_tools to calibrate the camera and generate CameraInfo.yaml.
+- Run `roslaunch calibration_tools mono_calibrator_17x11x0.042.launch camera:=dji_camera` to start pattern detector.
+- Start rqt, load the mono calibrator widget, add 2 image views (one for the raw image topic, one for the pattern detector)
+- Play the bag file and use the widget to add detected patterns for the calibrator. When your done click calibrate and commit. In the terminal where you started rqt you will see the printed sensor_msgs::CameraInfo. Copy the values to your yaml files.
 
 ----------
 Record plant images
