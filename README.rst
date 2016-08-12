@@ -42,6 +42,7 @@ This part is fully proprietary. Bosch associates can use binaries as explained h
 Segment plants and localize them
 ----------
 
+.. image:: hsv_segmentation_scaled.png
 ----------
 Plant matching
 ----------
