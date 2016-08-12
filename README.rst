@@ -3,12 +3,16 @@ Preface
 ----------
 This is an attempt to count plants on the outdoor testing fields using a hobbyist drone DJI Phantom 4. This application could be useful for seed breeders, chemical industry and farmers.
 
+.. image:: hof.png
+
 ----------
 Field Setup
 ----------
 For this attempt it is expected that you instrument your field with visual markers. We will use the ones from Zenoway (http://www.bosch-startup.com/platform.html) because of the past affiliation of the author with the mentioned company. However there is plenty of other also open source solutions that can be used instead, e.g. Alvar (http://wiki.ros.org/ar_track_alvar).)
 
 Templates for Zenoway markers (only for Bosch) are available here: https://owncloud.int.bosppaa.com/owncloud/index.php/s/Pnd417eEJcUknH3.
+
+.. image:: dji_sugarbeets_ihingerhof_scaled.png
 
 ----------
 Calibration
@@ -38,6 +42,7 @@ This part is fully proprietary. Bosch associates can use binaries as explained h
 Segment plants and localize them
 ----------
 
+.. image:: hsv_segmentation_scaled.png
 ----------
 Plant matching
 ----------
