@@ -3,6 +3,8 @@ Preface
 ----------
 This is an attempt to count plants on the outdoor testing fields using a hobbyist drone DJI Phantom 4. This application could be useful for seed breeders, chemical industry and farmers.
 
+.. image:: hof.png
+
 ----------
 Field Setup
 ----------
