@@ -17,8 +17,9 @@ Templates for Zenoway markers (only for Bosch) are available here: https://owncl
 ----------
 Calibration
 ----------
-- Fly with the drone (Use DJI Go app) and shoot around 50 pictures of a checkeboard from close (0.5m), far (5m) and in between. Also from different angles.
-- Copy images in one folder and use ``image_file_to_ros_topic.cpp`` tool to publishes images as ROS messages. Use ``rosbag record dji_camera/image_raw`` to record a ROS bag file.
+- Fly with the drone (Use DJI Go app) and record video of a checker board from close (0.5m), far (5m) and in between. Also from different angles.
+- Extract png images from recorded *.MOV file: ``ffmpeg -i *.MOV -vf fps=1 image%06d.png``
+- Generate ROS bag with converted images using this `script <https://github.com/dejanpan/dji_phantom_plant_counting/blob/master/dji_camera_calibration/src/image_file_to_ros_topic.cpp>`_ and ``rosbag record dji_camera/image_raw`` command.
 - Use https://github.int.bosppaa.com/deepfield/phenotyping/tree/indigo-develop/calibration_tools to calibrate the camera and generate CameraInfo.yaml.
 - Run `roslaunch calibration_tools mono_calibrator_17x11x0.042.launch camera:=dji_camera` to start pattern detector.
 - Start rqt, load the mono calibrator widget, add 2 image views (one for the raw image topic, one for the pattern detector)
@@ -33,8 +34,8 @@ Use DJI Go app and record Waypoints, see: http://forum.dji.com/thread-30373-1-1.
 ----------
 Convert plant images video into ROS bag
 ----------
-- Extract png images from  *.MOV file: ``ffmpeg -i DJI_0003_height_3m.MOV image%06d.png``
-- Generate ROS bag with converted images and above obtained CameraInfo. Use ``image_file_to_ros_topic.cpp`` and ``rosbag record dji_camera/image_raw dji_camera/camera_info``.
+- Extract png images from  *.MOV file: ``ffmpeg -i *.MOV image%06d.png``
+- Generate ROS bag with converted images and above obtained CameraInfo (which gets loaded from the yaml file). Use the same `script <https://github.com/dejanpan/dji_phantom_plant_counting/blob/master/dji_camera_calibration/src/image_file_to_ros_topic.cpp>`_ as above and ``rosbag record dji_camera/image_raw dji_camera/camera_info``.
 
 ----------
 Localize the drone using visual markers
