@@ -59,9 +59,10 @@ int main(int argc, char** argv)
       cv::Mat image = cv::imread(files_to_process.at(i), CV_LOAD_IMAGE_COLOR);
       cv::waitKey(30);
       sensor_msgs::ImagePtr msg = cv_bridge::CvImage(std_msgs::Header(), "bgr8", image).toImageMsg();
-      msg->header.stamp = ros::Time::now();
+      ros::Time current_stamp = ros::Time::now();
+      msg->header.stamp = current_stamp;
       msg->header.frame_id = "world";
-      cam_info.header.stamp = ros::Time::now();
+      cam_info.header.stamp = current_stamp;
 
       pub.publish(msg);
       if(calib_file_read_success)
