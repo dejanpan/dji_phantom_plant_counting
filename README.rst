@@ -12,6 +12,8 @@ For this attempt it is expected that you instrument your field with visual marke
 
 Templates for Zenoway markers (only for Bosch) are available here: https://owncloud.int.bosppaa.com/owncloud/index.php/s/Pnd417eEJcUknH3.
 
+.. image:: dji_sugarbeets_ihingerhof_scaled.png
+
 ----------
 Calibration
 ----------
