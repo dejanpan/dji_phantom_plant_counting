@@ -41,6 +41,21 @@ This part is fully proprietary. Bosch associates can use binaries as explained h
 ----------
 Segment plants and localize them
 ----------
+There are various plant/biomass segmentation algorithms out there. The ones that work best are based on the `NDVI index <https://en.wikipedia.org/wiki/Normalized_Difference_Vegetation_Index>`_ which explore the fact that healthy vegetation absorbs most of the visible light that hits it, and reflects a large portion of the near-infrared light. However since we do not have a near-infrared camera we will work with levels of greeness. To begin with we will implemented simple thresholding in HSV color space: `code <https://github.com/dejanpan/dji_phantom_plant_counting/blob/master/dji_plant_segmentation/src/plant_segmentation.cpp>`_.
+
+Most important parameters:
+
+- `lightness <https://github.com/dejanpan/dji_phantom_plant_counting/blob/master/dji_plant_segmentation/src/plant_segmentation.cpp#L361>`_ - green values are in range of around 159
+
+- plant candidate `min and max size <https://github.com/dejanpan/dji_phantom_plant_counting/blob/master/dji_plant_segmentation/src/plant_segmentation.cpp#L363-L364>`_ - this depends on how high we fly, so treat carefully.
+
+- result images `destination <https://github.com/dejanpan/dji_phantom_plant_counting/blob/master/dji_plant_segmentation/src/plant_segmentation.cpp#L502-L503>`_ - currently hardcode, will be improved later.
+
+How to run the code:
+
+- extract images from *.MOV file as explained in `Convert plant images video into ROS bag`_
+- run segmentation as a batch process (replace corresponding hard coded paths): ``for i in /media/pad1pal/data/data/phenotyping/dji_plant_counting/20160629/*.png; do f1=$(cut -c 71- <<< $i); f2=$(cut -c-6 <<< $f1); rosrun dji_plant_segmentation plant_segmentation_node $i $f2 --scanner; done``
+
 
 .. image:: hsv_segmentation_scaled.png
 ----------
