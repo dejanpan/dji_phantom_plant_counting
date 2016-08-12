@@ -56,6 +56,7 @@ How to run the code:
 - extract images from *.MOV file as explained in `Convert plant images video into ROS bag`_
 - run segmentation as a batch process (replace corresponding hard coded paths): ``for i in /media/pad1pal/data/data/phenotyping/dji_plant_counting/20160629/*.png; do f1=$(cut -c 71- <<< $i); f2=$(cut -c-6 <<< $f1); rosrun dji_plant_segmentation plant_segmentation_node $i $f2 --scanner; done``
 
+The result should like in this `video <https://youtu.be/V8nv7FO7Ve0>`_ or in below screenshot.
 
 .. image:: hsv_segmentation_scaled.png
 ----------
