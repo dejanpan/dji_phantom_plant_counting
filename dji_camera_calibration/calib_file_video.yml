@@ -1,0 +1,20 @@
+image_width: 3840
+image_height: 2160
+camera_name: dji_camera
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [2353.795941672155, 0.0, 1901.1972098057263, 0.0, 2358.6465641926698, 1017.8132454445443, 0.0, 0.0, 1.0]
+distortion_model: plumb_bob
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data: [-0.02004101074860789, 0.011930225110201118, -4.926540974408722e-05, -0.00010567244936625963, -0.010156465856742252]
+rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [1, 0, 0, 0, 1, 0, 0, 0, 1]
+projection_matrix:
+  rows: 3
+  cols: 4
+  data: [2326.487548828125, 0.0, 1899.7053717313393, 0.0, 0.0, 2348.502197265625, 1016.8353761628168, 0.0, 0.0, 0.0, 1.0, 0.0]
