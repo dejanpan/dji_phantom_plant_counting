@@ -35,7 +35,7 @@ Use DJI Go app and record Waypoints, see: http://forum.dji.com/thread-30373-1-1.
 Convert plant images video into ROS bag
 ----------
 - Extract png images from  *.MOV file: ``ffmpeg -i *.MOV image%06d.png``
-- Generate ROS bag with converted images and above obtained CameraInfo (which gets loaded from the yaml file). Use the same `script <https://github.com/dejanpan/dji_phantom_plant_counting/blob/master/dji_camera_calibration/src/image_file_to_ros_topic.cpp>`_ as above and ``rosbag record dji_camera/image_raw dji_camera/camera_info``.
+- Generate ROS bag with converted images and above obtained CameraInfo (which gets loaded from the yaml file). Use the same `script <https://github.com/dejanpan/dji_phantom_plant_counting/blob/master/dji_camera_calibration/src/image_file_to_ros_topic.cpp>`_ as above to publish on image topic and ``rosbag record dji_camera/image_raw dji_camera/camera_info`` to record.
 
 ----------
 Localize the drone using visual markers
