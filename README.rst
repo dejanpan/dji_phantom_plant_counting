@@ -1,11 +1,13 @@
 ----------
-Preface
+About
 ----------
 This is an attempt to count plants on the outdoor testing fields using a hobbyist drone DJI Phantom 4. This application could be useful for seed breeders, chemical industry and farmers.
 
 **For early results check out sugarbeet detection** `video <https://youtu.be/Rk-uM0IUaw4/>`_ **and drone localization** `video <https://youtu.be/V8nv7FO7Ve0/>`_.
 
-.. image:: hof.png
+.. image:: dji_sugarbeets_ihingerhof_scaled.png
+   :align: center
+   :width: 800px
 
 ----------
 Field Setup
@@ -14,7 +16,6 @@ For this attempt it is expected that you instrument your field with visual marke
 
 Templates for Zenoway markers (only for Bosch) are available here: https://owncloud.int.bosppaa.com/owncloud/index.php/s/Pnd417eEJcUknH3.
 
-.. image:: dji_sugarbeets_ihingerhof_scaled.png
 
 ----------
 Calibration
@@ -48,6 +49,7 @@ An example trajectory in the visual marker map:
 
 .. image:: dji_localization.png
    :align: center
+   :width: 800px
 
 ----------
 Segment plants and localize them
@@ -70,6 +72,9 @@ How to run the code:
 The result should like in this `video <https://youtu.be/V8nv7FO7Ve0>`_ or in below screenshot.
 
 .. image:: hsv_segmentation_scaled.png
+   :align: center
+   :width: 800px
+   
 ----------
 Plant matching
 ----------
