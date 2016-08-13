@@ -44,7 +44,7 @@ This part is fully proprietary. Bosch associates can use binaries as explained h
 
 An example trajectory in the visual marker map:
 
-.. image:: dji_sugarbeets_ihingerhof_scaled.png
+.. image:: dji_localization.png
    :align: center
 
 ----------
