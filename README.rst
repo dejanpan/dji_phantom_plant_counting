@@ -3,7 +3,7 @@ About
 ----------
 This is an attempt to count plants on the outdoor testing fields using a hobbyist drone DJI Phantom 4. This application could be useful for seed breeders, chemical industry and farmers.
 
-**For early results check out sugarbeet detection** `video <https://youtu.be/Rk-uM0IUaw4/>`_ **and drone localization** `video <https://youtu.be/V8nv7FO7Ve0/>`_.
+**For early results check out sugarbeet detection** `video <https://youtu.be/V8nv7FO7Ve0/>`_ **and drone localization** `video <https://youtu.be/Rk-uM0IUaw4/>`_.
 
 .. image:: dji_sugarbeets_ihingerhof_scaled.png
    :align: center
@@ -69,7 +69,7 @@ How to run the code:
 - extract images from *.MOV file as explained in `Convert plant images video into ROS bag`_
 - run segmentation as a batch process (replace corresponding hard coded paths): ``for i in /media/pad1pal/data/data/phenotyping/dji_plant_counting/20160629/*.png; do f1=$(cut -c 71- <<< $i); f2=$(cut -c-6 <<< $f1); rosrun dji_plant_segmentation plant_segmentation_node $i $f2 --scanner; done``
 
-The result should like in this `video <https://youtu.be/V8nv7FO7Ve0>`_ or in below screenshot.
+The result should look like in this `video <https://youtu.be/V8nv7FO7Ve0>`_ or in below screenshot.
 
 .. image:: hsv_segmentation_scaled.png
    :align: center
@@ -80,3 +80,11 @@ Plant matching
 ----------
 
 TBD!
+
+-------
+Authors
+-------
+- Dejan Pangercic
+- Nikolaus Demmel
+- Gabriel Gaessler
+- Steffen Fuchs
