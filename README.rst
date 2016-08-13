@@ -42,6 +42,11 @@ Localize the drone using visual markers
 ----------
 This part is fully proprietary. Bosch associates can use binaries as explained here (https://github.int.bosppaa.com/deepfield-experimental/low_cost_navigation/issues/22), others please contact Zenoway.
 
+An example trajectory in the visual marker map:
+
+.. image:: dji_sugarbeets_ihingerhof_scaled.png
+   :align: center
+
 ----------
 Segment plants and localize them
 ----------
